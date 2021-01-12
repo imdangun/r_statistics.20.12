@@ -1,5 +1,7 @@
 #2.1 frequency table (도수분포표)
 
+# Rstat.zip 압축을 푼다.
+# C:\DEV\R\R-3.4.4\library\Rstat 폴더를 붙여 넣는다.
 .libPaths('C:/DEV/R/R-3.4.4/library')
 .libPaths() # [1] "C:/DEV/R/R-3.4.4/library"
 

@@ -1,4 +1,4 @@
-##4. box plot
+##4. stem-plot,  box plot, scatter diagram chart(산점도),
 
 ##1. stem-and-leaf plot (줄기-잎 그림)
 # - stem: 마지막 한자리를 제외한 윗자리 숫자
@@ -81,3 +81,61 @@ xstat = apply(x, 2, fivenum) # x의 column(2)별로 fivenum 을 적용한다.
 
 text(rep(1:10, each = 5), xstat, labels = xstat, col = 4, cex = 0.7, pos = 4)
 # plot14
+
+
+
+##3. scatter diagram chart
+# - 두 변수의 상관관계를 표현한다.
+# - hypothesis test 의 예비 단계로 사용한다.
+
+corr.plot6()
+# plot31
+
+corr.plot6(m1 = 50, s1 = 10, m2 = 65, s2 = 5, r = 0.8, r2 = 0.9, n = 100)
+# plot32
+
+ch2.man(4)
+# [4] Making Scatter Plots of Six Cases
+# corr.plot6(m1 = 60, s1=10, m2=60, s2=10, r=0.7, r2=0.8, n=50)
+# [Optional Input]--------------------------
+# m1 	 Mean of x (default= 60)
+# s1   Standard deviation of x (default=10)
+# m2 	 Mean of y (default=60)
+# s2 	 Standard deviation of y (default=10)
+# r    Correlation coefficient of x and y (default=0.7)
+# r2   Correlation coefficient of the stratified sample (default=0.8)
+# n    Number of data pairs (default=50)
+
+plot(mtcars$wt, mtcars$mpg)
+# plot33
+
+scat.lm(mtcars$wt, mtcars$mpg);
+# plot34
+
+with(mtcars, scat.lm(wt, mpg, mt='자동차 중량 대 연비 산점도', xl='중량(wt)', yl='연비(mpg)'))
+# plot35
+
+ch2.man(5)
+# [5] Making a Scatter Plot with a Regression Line
+# scat.lm(x, y, mt, xl, yl, w=c(7, 5), ...)
+# [Mandatory Input]--------------------------
+# x  	 Data vector for x-axis
+# y  	 Data vector for y-axis
+# [Optional Input]--------------------------
+# mt 	 Title of the scatter plot
+# xl 	 Label of x-axis
+# yl 	 Label of y-axis
+# w  	 Size of the graphic window (default=c(7, 5))
+# ...  	 Graphic parameters
+
+# https://rfriend.tistory.com/83 : pairs()
+pairs(mtcars[c(1, 2, 4, 6)])
+# plot36
+
+pairs(~mpg + cyl + hp + wt, data = mtcars)
+# plot37
+
+pairs(~mpg + cyl + hp + wt, data = mtcars, main = '자동차 특성치 산점행렬도', 
+      panel = function(x, y) { points(x, y, pch = 19, col = 4) 
+        abline(lm(y~x), col = 2)})
+# plot38

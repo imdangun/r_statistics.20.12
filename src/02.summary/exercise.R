@@ -198,3 +198,12 @@ lines(density(x2), col=2)
 abline(v=mean(x2), lty=2, col=4, lwd=2)
 mtext(round(mean(x2), 3), side=3, at=mean(x2), col=4, cex=0.9)
 # p3-7
+
+# 8)
+cat('mean(x1) =', mean(x1), '  var(x1) =', var(as.vector(x1)), 
+    '  median(x1) =', median(x1), '\n')
+# mean(x1) = 59.45   var(x1) = 709.2795   median = 66
+
+cat('mean(x2) =', mean(x2), '  var(x2) =', var(as.vector(x2)), 
+    '  median(x1) =', median(x2), '\n')
+# mean(x2) = 60.35   var(x2) = 489.5667   median(x1) = 63 
